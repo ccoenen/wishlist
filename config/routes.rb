@@ -7,5 +7,6 @@ Wishlist::Application.routes.draw do
     get 'take', :on => :member
   end
 
-  root :to => 'wishes#index'
+  match 'owner_protection/:action', {:controller => "owner_protection"}
+  root :to => 'owner_protection#index'
 end

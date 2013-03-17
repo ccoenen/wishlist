@@ -3,9 +3,7 @@
 <table>
   <tr>
     <th>Title</th>
-    <th>Taken by</th>
     <th>Notes</th>
-    <th>Secret</th>
     <th>Url</th>
     <th></th>
     <th></th>
@@ -15,9 +13,7 @@
 <% @wishes.each do |wish| %>
   <tr>
     <td><%= wish.title %></td>
-    <td><%= wish.taken_by %></td>
     <td><%= wish.notes %></td>
-    <td><%= wish.secret %></td>
     <td><%= wish.url %></td>
     <td><%= link_to 'Show', wish %></td>
   </tr>

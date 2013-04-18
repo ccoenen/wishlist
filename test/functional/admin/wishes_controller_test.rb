@@ -18,7 +18,7 @@ class Admin::WishesControllerTest < ActionController::TestCase
 
   test "should create admin_wish" do
     assert_difference('Wish.count') do
-      post :create, wish: { notes: @teapot.notes, secret: @teapot.secret, taken_by: @teapot.taken_by, title: @teapot.title, url: @teapot.url }
+      post :create, wish: { notes: @teapot.notes, title: @teapot.title, url: @teapot.url }
     end
 
     assert_redirected_to admin_wish_path(assigns(:wish))
@@ -35,7 +35,7 @@ class Admin::WishesControllerTest < ActionController::TestCase
   end
 
   test "should update admin_wish" do
-    put :update, id: @teapot, wish: { notes: @teapot.notes, secret: @teapot.secret, taken_by: @teapot.taken_by, title: @teapot.title, url: @teapot.url }
+    put :update, id: @teapot, wish: { notes: @teapot.notes, title: @teapot.title, url: @teapot.url }
     assert_redirected_to admin_wish_path(assigns(:wish))
   end
 

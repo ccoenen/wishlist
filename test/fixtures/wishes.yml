@@ -2,14 +2,14 @@
 
 teapot:
   title: Teapot
-  taken_by:
+  claimed_by:
   notes: This should be a nice teapot
   secret: aebasdf0923
   url: http://example.com/test/teapot
 
 taken_teaspoon:
   title: Teaspoon
-  taken_by: aww. fiddlesticks.
+  claimed_by: aww. fiddlesticks.
   notes: I really want this teaspoon.
   secret: jdfasjx
   url: http://example.com/test/teaspoon

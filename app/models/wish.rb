@@ -1,3 +1,20 @@
 class Wish < ActiveRecord::Base
-  attr_accessible :notes, :secret, :taken_by, :title, :url
+  attr_accessible :notes, :title, :url
+
+  validates :secret, :presence => true, :uniqueness => true
+
+  before_validation :create_secret
+
+
+
+
+  private
+
+  def create_secret
+    unique_id = nil
+    begin
+      unique_id = SecureRandom.uuid # or whatever you chose like UUID tools
+    end while unique_id.nil? || self.class.exists?(:secret => unique_id)
+    self.secret = unique_id
+  end
 end

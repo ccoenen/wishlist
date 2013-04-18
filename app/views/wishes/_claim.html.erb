@@ -1,0 +1,5 @@
+<%= form_tag(prepare_claim_wish_url(:id => wish), :method => 'post') do %>
+  <%= label_tag :claim_email, "Enter your email to claim this wish: " %>
+  <%= email_field(:claim, :email) %>
+  <%= submit_tag("claim") %>
+<% end %>

@@ -4,7 +4,8 @@ Wishlist::Application.routes.draw do
   end
 
   resources :wishes, :only => [:index, :show] do
-    get 'take', :on => :member
+    post 'prepare_claim', :on => :member
+    get 'claim', :on => :member
   end
 
   match 'owner_protection/:action', {:controller => "owner_protection"}

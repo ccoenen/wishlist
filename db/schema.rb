@@ -11,11 +11,11 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130317144322) do
+ActiveRecord::Schema.define(:version => 20130331190841) do
 
   create_table "wishes", :force => true do |t|
     t.string   "title"
-    t.string   "taken_by"
+    t.string   "claimed_by"
     t.text     "notes"
     t.string   "secret"
     t.string   "url"

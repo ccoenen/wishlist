@@ -1,13 +1,6 @@
-<p id="notice"><%= notice %></p>
-
 <p>
   <b>Title:</b>
   <%= @wish.title %>
-</p>
-
-<p>
-  <b>Taken by:</b>
-  <%= @wish.taken_by %>
 </p>
 
 <p>
@@ -16,14 +9,10 @@
 </p>
 
 <p>
-  <b>Secret:</b>
-  <%= @wish.secret %>
-</p>
-
-<p>
   <b>Url:</b>
   <%= @wish.url %>
 </p>
 
+<%= render :partial => 'claim', :locals => {:wish => @wish} %>
 
 <%= link_to 'Back', wishes_path %>

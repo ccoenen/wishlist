@@ -1,16 +1,16 @@
 source 'https://rubygems.org'
 
-gem 'rails', '3.2.12'
+gem 'rails', '3.2.13'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 group :development do
-  gem 'sqlite3'
+  gem 'eventmachine' #, :git => 'git://github.com/sroller/eventmachine.git'
+  gem 'thin'
 end
-group :production do
-  gem 'pg'
-end
+
+gem 'pg'
 
 # Gems used only for assets and not required
 # in production environments by default.

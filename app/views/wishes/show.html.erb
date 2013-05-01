@@ -1,18 +1,15 @@
-<p>
-  <b>Title:</b>
-  <%= @wish.title %>
-</p>
+<h2><%= @wish.title %></h2>
+
+<%= image_tag @wish.image.thumb.url.to_s, class: 'thumb' %>
 
 <p>
-  <b>Notes:</b>
   <%= @wish.notes %>
 </p>
 
 <p>
-  <b>Url:</b>
-  <%= @wish.url %>
+  <%= link_to @wish.url, @wish.url %>
 </p>
 
 <%= render :partial => 'claim', :locals => {:wish => @wish} %>
 
-<%= link_to 'Back', wishes_path %>
+<%= link_to 'Back', wishes_path, class: 'btn' %>

@@ -1,15 +1,48 @@
-body {
-  background-color: #fff;
-  color: #333;
-  font-family: verdana, arial, helvetica, sans-serif;
-  font-size: 13px;
-  line-height: 18px;
+html {
+  min-height: 100%;
+  background: #ebebeb;
+  padding-top: 40px;
+  padding-bottom: 600px;
 }
 
-p, ol, ul, td {
-  font-family: verdana, arial, helvetica, sans-serif;
-  font-size: 13px;
-  line-height: 18px;
+body {
+  background-color: #fff;
+  
+  background: white;
+  max-width: 560px;
+  padding: 20px;
+  box-shadow: 3px 3px 15px 0px #ccc; 
+  -webkit-box-shadow: 3px 3px 15px 0px #ccc; 
+  
+  margin: auto;
+}
+
+body, p, ul, ol, input[type=submit] {
+  color: black;
+  font-family: 'Times New Roman', serif;
+  font-size: 14px;
+  line-height: 1.6em;
+}
+
+h1, h2, h3 {
+  font-weight: bold;
+  font-style: italic;
+}
+
+h1 {
+  font-size: 250%;
+  padding: 0.4em 0 0.3em 0;
+  text-align: center;
+}
+
+h2 {
+  font-size: 200%;
+}
+
+h4 {
+  color: #00a800;
+  margin: 10px 0 0 0;
+  font-style: italic;
 }
 
 pre {
@@ -18,15 +51,24 @@ pre {
   font-size: 11px;
 }
 
-a {
-  color: #000;
-  &:visited {
-    color: #666;
-  }
-  &:hover {
-    color: #fff;
-    background-color: #000;
-  }
+em {
+  font-size: 1.1em;
+  font-weight: bold;
+  font-style: italic;
+}
+
+a, input[type="submit"] {
+  color: #505050;
+}
+
+a:hover {
+  color: black;
+  background: none;
+}
+
+input[type=submit]:hover {
+  color: black;
+  cursor: pointer;
 }
 
 div {
@@ -65,5 +107,61 @@ div {
   ul li {
     font-size: 12px;
     list-style: square;
+  }
+}
+
+a.btn,
+input.btn {
+  background: #d9d9d9;
+  text-decoration: none;
+  padding: 0.2em 0.8em;
+  display: inline-block;
+  margin: 0.2em 0;
+  width: auto;
+  font-weight: bold;
+  border: none;
+}
+
+img.thumb {
+  background: white;
+  float: left;
+  width: 100px;
+  height: 100px;
+  border: none;
+  margin: 1em 2em 1em 0;
+  box-shadow: 3px 3px 15px 0px #ccc; 
+  -webkit-box-shadow: 3px 3px 15px 0px #ccc; 
+}
+
+fieldset {
+  margin: 1em;
+  border: 1px solid #d9d9d9;
+}
+
+.records {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  
+  .record {
+    border-top: 1px solid #d9d9d9;
+    vertical-align: middle;
+    
+    &.claimed {
+      background-image: repeating-linear-gradient(-45deg, transparent, transparent 15px, rgba(0,0,0,.08) 15px, rgba(0,0,0,.08) 30px);
+    }
+    
+    .info {
+      margin-left: 100px;
+      padding: 1em 1.5em;
+      min-height: 100px;
+      span {
+        display: block;
+      }
+    }
+    
+    img {
+      float: left;
+    }
   }
 }

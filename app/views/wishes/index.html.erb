@@ -1,22 +1,17 @@
 <h1>Listing wishes</h1>
 
-<table>
-  <tr>
-    <th>Title</th>
-    <th>Notes</th>
-    <th>Url</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
+<ul class='records'>
 <% @wishes.each do |wish| %>
-  <tr>
-    <td><%= image_tag wish.image.thumb.url.to_s %></td>
-    <td><%= wish.title %></td>
-    <td><%= wish.notes %></td>
-    <td><%= wish.url %></td>
-    <td><%= link_to 'Show', wish %></td>
-  </tr>
+  <li class='record <%= 'claimed' if wish.claimed_by %>'>
+    <%= image_tag wish.image.thumb.url.to_s, class: 'thumb' %>
+    <div class='info'>
+      <h4><%= wish.title %></h4>
+      <span id='notes'><%= wish.notes %></span>
+      <span id='url'><%= link_to wish.url, wish.url %></span>
+      <% if !wish.claimed_by %>
+        <%= link_to 'As a gift', wish, class: 'btn' %>
+      <% end %>
+    <div>
+  </li>
 <% end %>
-</table>
+</ul>

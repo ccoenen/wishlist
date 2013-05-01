@@ -1,11 +1,11 @@
 class Wish < ActiveRecord::Base
-  attr_accessible :notes, :title, :url
+  attr_accessible :notes, :title, :url, :image, :image_cache
 
   validates :secret, :presence => true, :uniqueness => true
 
   before_validation :create_secret
 
-
+  mount_uploader :image, ImageUploader
 
 
   private

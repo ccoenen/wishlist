@@ -12,6 +12,7 @@
 
 <% @wishes.each do |wish| %>
   <tr>
+    <td><%= image_tag wish.image.thumb.url.to_s %></td>
     <td><%= wish.title %></td>
     <td><%= wish.notes %></td>
     <td><%= wish.url %></td>

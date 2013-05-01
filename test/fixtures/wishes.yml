@@ -3,6 +3,7 @@
 teapot:
   title: Teapot
   claimed_by:
+  image: smiley.png
   notes: This should be a nice teapot
   secret: aebasdf0923
   url: http://example.com/test/teapot
@@ -10,6 +11,7 @@ teapot:
 taken_teaspoon:
   title: Teaspoon
   claimed_by: aww. fiddlesticks.
+  image: smiley.png
   notes: I really want this teaspoon.
   secret: jdfasjx
   url: http://example.com/test/teaspoon

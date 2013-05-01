@@ -27,7 +27,7 @@ class Admin::WishesControllerTest < ActionController::TestCase
   test "should create admin_wish" do
     @request.env['HTTP_AUTHORIZATION'] = @auth
     assert_difference('Wish.count') do
-      post :create, wish: { notes: @teapot.notes, title: @teapot.title, url: @teapot.url }
+      post :create, wish: { notes: @teapot.notes, title: @teapot.title, url: @teapot.url, image: fixture_file_upload('/files/smiley.png') }
     end
 
     assert_redirected_to admin_wish_path(assigns(:wish))
@@ -47,7 +47,7 @@ class Admin::WishesControllerTest < ActionController::TestCase
 
   test "should update admin_wish" do
     @request.env['HTTP_AUTHORIZATION'] = @auth
-    put :update, id: @teapot, wish: { notes: @teapot.notes, title: @teapot.title, url: @teapot.url }
+    put :update, id: @teapot, wish: { notes: @teapot.notes, title: @teapot.title, url: @teapot.url, image: fixture_file_upload('/files/smiley.png') }
     assert_redirected_to admin_wish_path(assigns(:wish))
   end
 

@@ -9,6 +9,7 @@
 
 <% @wishes.each do |wish| %>
   <tr>
+    <td><%= image_tag wish.image.thumb.url.to_s %></td>
     <td><%= wish.title %></td>
     <td><%= link_to 'Show', admin_wish_path(wish) %></td>
     <td><%= link_to 'Edit', edit_admin_wish_path(wish) %></td>

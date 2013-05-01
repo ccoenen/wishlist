@@ -1,4 +1,7 @@
 class Admin::WishesController < ApplicationController
+  # taken from railscast 270 :D You obviously want to change it
+  http_basic_authenticate_with :name => "frodo", :password => "thering", :realm => 'The Wishlist Backend is just for special users'
+
   # GET /admin/wishlist
   def index
     @wishes = Wish.all

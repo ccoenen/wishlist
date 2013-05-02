@@ -20,7 +20,7 @@ class WishesController < ApplicationController
   def prepare_claim
     @wish = Wish.find(params[:id])
     ClaimMailer.claim(@wish, params[:claim][:email]).deliver
-    redirect_to @wish, :notice => 'email has been sent'
+    redirect_to @wish, :notice => I18n.t('wishes_controller.prepare_claim_notice')
   end
 
   # GET /wishes/ae2342ac/claim
@@ -28,6 +28,6 @@ class WishesController < ApplicationController
     @wish = Wish.find_by_secret(params[:id])
     @wish.claimed_by = params[:email]
     @wish.save
-    redirect_to @wish, :notice => 'You claimed this wish'
+    redirect_to @wish, :notice => I18n.t('wishes_controller.claim_notice', :title => @wish.title)
   end
 end

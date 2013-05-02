@@ -1,7 +1,7 @@
 <%= form_tag(prepare_claim_wish_url(:id => wish), :method => 'post') do %>
   <fieldset>
-    <%= label_tag :claim_email, "Enter your email to claim this wish: " %>
+    <%= label_tag :claim_email, t('wishes_views.claim_label') %>
     <%= email_field(:claim, :email) %>
-    <%= submit_tag("claim", class: 'btn') %>
+    <%= submit_tag(t('actions.claim'), class: 'button') %>
   </fieldset>
 <% end %>

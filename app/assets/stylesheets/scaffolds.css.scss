@@ -169,8 +169,8 @@ nav ul li a.active {
   }
 }
 
-a.btn,
-input.btn {
+a.button,
+input.button {
   background: #d9d9d9;
   text-decoration: none;
   padding: 0.2em 0.8em;
@@ -199,35 +199,6 @@ fieldset {
 
 #container-wishlist p {
   text-align: left;
-}
-
-.records {
-  text-align: left;
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  
-  .record {
-    border-top: 1px solid #d9d9d9;
-    vertical-align: middle;
-    
-    &.claimed {
-      background-image: repeating-linear-gradient(-45deg, transparent, transparent 15px, rgba(0,0,0,.08) 15px, rgba(0,0,0,.08) 30px);
-    }
-    
-    .info {
-      margin-left: 100px;
-      padding: 1em 1.5em;
-      min-height: 100px;
-      span {
-        display: block;
-      }
-    }
-    
-    img {
-      float: left;
-    }
-  }
 }
 
 #content {

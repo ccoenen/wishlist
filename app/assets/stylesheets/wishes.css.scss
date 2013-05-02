@@ -1,3 +1,42 @@
 // Place all the styles related to the Wishes controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.records {
+  text-align: left;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+
+  .record {
+    border-top: 1px solid #d9d9d9;
+    vertical-align: middle;
+
+    &.claimed {
+      background-image: repeating-linear-gradient(-45deg, transparent, transparent 15px, rgba(0,0,0,.08) 15px, rgba(0,0,0,.08) 30px);
+    }
+
+    .info {
+      position: relative;
+      margin-left: 100px;
+      padding: 1em 1.5em;
+      min-height: 100px;
+
+      span {
+        display: block;
+      }
+
+      span.claimed {
+        position: absolute;
+        top: 0;
+        right: 0;
+        padding: 5px;
+        background-color: rgb(235,235,235);
+      }
+    }
+
+    img {
+      float: left;
+    }
+  }
+}

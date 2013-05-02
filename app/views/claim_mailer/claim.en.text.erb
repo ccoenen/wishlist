@@ -1,0 +1,11 @@
+Hi,
+
+You chose this item from a wishlist: <%= @wish.title %>.
+
+Please confirm that you are going to give this as a present. We will then remove it from the wishlist automatically, so it will not be given twice.
+
+To confirm, please click this link:
+<%= claim_wish_url(:id => @wish.secret, :email => @email, :only_path => false) %>
+
+Cheers!
+The Automated Wishlist Mailer

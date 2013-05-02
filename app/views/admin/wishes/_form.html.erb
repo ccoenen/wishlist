@@ -1,6 +1,10 @@
 <%= form_for(@wish, :url => (@wish.id ? admin_wish_url(@wish) : admin_wishes_url)) do |f| %>
   <% if @wish.errors.any? %>
     <div id="error_explanation">
+
+      <%
+      #TODO should get localized 
+      %>
       <h2><%= pluralize(@wish.errors.count, "error") %> prohibited this wish from being saved:</h2>
 
       <ul>

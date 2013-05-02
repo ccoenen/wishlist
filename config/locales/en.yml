@@ -2,4 +2,47 @@
 # See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
 en:
-  hello: "Hello world"
+  activerecord:
+    models:
+      wish: Wish
+    attributes:
+      wish:
+        title: Title
+        notes: Notes
+        image: Image
+        url: URL
+  actions:
+    all_wishes_in_frontend: All wishes in frontend
+    back: back
+    claim: claim
+    confirm_delete_wish: Are you sure you want to delete %{title}?
+    destroy: delete
+    edit: edit
+    give_this_item: I want to give this item
+    new_wish: add a wish
+    show: show
+    wish_in_frontend: show this wish in frontend
+  labels:
+    claimed: claimed
+    claimed_title: someone else is already planning on giving this
+  admin_wishes_controller:
+    http_basic_auth_realm: The Wishlist Backend is just for special users
+    wish_created_notice: Wish was created successfully.
+    wish_updated_notice: Wish was updated successfully.
+  wishes_controller:
+    claim_notice: You claimed %{title}. This wish can not be claimed by anyone else now.
+    prepare_claim_notice: Please take a look at your email-inbox. You need to click the link contained in that email.
+  claim_mailer_claim:
+    subject: Please verify that you are going to give %{gift}
+  admin_wishes_views:
+    index_title: Wishes
+    edit_wish_title: Edit this wish
+    new_wish_title: New Wish
+  owner_protection_views:
+    index_title: Surprise Protection
+    index_explanation: This is the first time that you visit this wishlist. We don't want to spoil the surprise, this is why we need to know if you are the owner of this wishlist or not.
+    owner_show_all: I am the owner of the list. Don't spoil my surprise
+    visitor_show_unclaimed: I am looking for presents to give. Show me only unclaimed wishes.
+  wishes_views:
+    claim_label: "Enter your email to claim this wish:"
+    index_title: List of Wishes

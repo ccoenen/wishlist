@@ -1,6 +1,6 @@
 class Admin::WishesController < ApplicationController
   # taken from railscast 270 :D You obviously want to change it
-  http_basic_authenticate_with :name => "frodo", :password => "thering", :realm => 'The Wishlist Backend is just for special users'
+  http_basic_authenticate_with :name => "frodo", :password => "thering", :realm => I18n.t('admin_wishes_controller.http_basic_auth_realm')
 
   # GET /admin/wishlist
   def index
@@ -27,7 +27,7 @@ class Admin::WishesController < ApplicationController
     @wish = Wish.new(params[:wish])
 
     if @wish.save
-      redirect_to admin_wish_url(@wish), notice: 'Wishlist was successfully created.'
+      redirect_to admin_wish_url(@wish), notice: I18n.t('admin_wishes_controller.wish_created_notice')
     else
       render action: "new"
     end
@@ -38,7 +38,7 @@ class Admin::WishesController < ApplicationController
     @wish = Wish.find(params[:id])
 
     if @wish.update_attributes(params[:wish])
-      redirect_to admin_wish_url(@wish), notice: 'Wishlist was successfully updated.'
+      redirect_to admin_wish_url(@wish), notice: I18n.t('admin_wishes_controller.wish_updated_notice')
     else
       render action: "edit"
     end

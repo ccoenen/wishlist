@@ -8,14 +8,21 @@
 </head>
 <body>
 
-  <% if flash[:notice] %>
-    <p class="notice"><%= flash[:notice] %></p>
-  <% end %>
-  <% if flash[:error] %>
-    <p class="error"><%= flash[:error] %></p>
-  <% end %>
+  <div id="canvasContainer">
+    <canvas id="canvas"></canvas>
+  </div>
 
-<%= yield %>
+  <div id="page">
+
+    <%= render 'layouts/header' %>
+
+    <div id="content">
+
+      <%= render 'layouts/wishlist' %>
+
+    </div>
+
+  </div>
 
 </body>
 </html>

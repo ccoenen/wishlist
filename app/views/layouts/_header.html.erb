@@ -1,0 +1,16 @@
+<header>
+  <img src="/assets/header.png" alt="Wishlist">
+</header>
+
+<% if flash[:notice] %>
+    <p class="notice"><%= flash[:notice] %></p>
+<% end %>
+<% if flash[:error] %>
+    <p class="error"><%= flash[:error] %></p>
+<% end %>
+
+<nav>
+  <ul>
+    <li><a href="/">Start</a></li>
+  </ul>
+</nav>

@@ -1,23 +1,16 @@
 html {
   min-height: 100%;
-  background: #ebebeb;
-  padding-top: 40px;
-  padding-bottom: 600px;
 }
 
 body {
-  background-color: #fff;
-  
-  background: white;
-  max-width: 560px;
-  padding: 20px;
-  box-shadow: 3px 3px 15px 0px #ccc; 
-  -webkit-box-shadow: 3px 3px 15px 0px #ccc; 
-  
-  margin: auto;
+  font-family: 'Times New Roman', serif;
+  font-size: 0.9em;
+  line-height: 1.4em;
+  background: #ebebeb;
+  padding-bottom: 600px;
 }
 
-body, p, ul, ol, input[type=submit] {
+body, p, ul, ol, input[type="submit"] {
   color: black;
   font-family: 'Times New Roman', serif;
   font-size: 14px;
@@ -32,7 +25,6 @@ h1, h2, h3 {
 h1 {
   font-size: 250%;
   padding: 0.4em 0 0.3em 0;
-  text-align: center;
 }
 
 h2 {
@@ -66,7 +58,7 @@ a:hover {
   background: none;
 }
 
-input[type=submit]:hover {
+input[type="submit"]:hover {
   color: black;
   cursor: pointer;
 }
@@ -75,6 +67,73 @@ div {
   &.field, &.actions {
     margin-bottom: 10px;
   }
+}
+
+header {
+  text-align: center;
+  padding: 20px 0 15px 0;
+}
+
+header img {
+  width: 100%;
+  max-width: 592px;
+}
+
+nav {
+  text-align: center;
+  box-shadow: 3px 5px 15px 0px #ccc;
+  -webkit-box-shadow: 3px 5px 15px 0px #ccc;
+}
+
+nav ul {
+  font-size: 14pt;
+  list-style: none;
+  margin: 0;
+  padding: 15px 8px 5px 8px;
+  background: #d9d9d9;
+}
+
+nav ul li {
+  display: inline;
+}
+
+nav ul li a {
+  font-weight: bold;
+  text-decoration: none;
+  padding: 9px;
+  border-top: 3px solid #d9d9d9;
+  font-style: italic;
+}
+
+nav ul li a.active {
+  background-color: white;
+  color: #00a800;
+  border-top-color: #ade3ad;
+}
+
+#page {
+  position: relative;
+  z-index: 2;
+  max-width: 600px;
+  margin: auto;
+}
+
+#canvasContainer {
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  overflow: hidden;
+}
+
+#canvas {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
 }
 
 #notice {
@@ -138,7 +197,12 @@ fieldset {
   border: 1px solid #d9d9d9;
 }
 
+#container-wishlist p {
+  text-align: left;
+}
+
 .records {
+  text-align: left;
   list-style: none;
   padding: 0;
   margin: 0;
@@ -163,5 +227,71 @@ fieldset {
     img {
       float: left;
     }
+  }
+}
+
+#content {
+  background-color: white;
+  padding: 20px;
+  box-shadow: 3px 3px 15px 0px #ccc;
+  -webkit-box-shadow: 3px 3px 15px 0px #ccc;
+}
+
+section {
+  clear: both;
+  text-align: center;
+}
+
+.clear {
+  clear: both;
+}
+
+.invisible {
+  display: none;
+}
+
+#map {
+  width: 100%;
+  height: 250px;
+  border: none;
+}
+
+#mapshadow {
+  position: relative;
+  left: -3px;
+  top: -259px;
+  z-index: 300;
+  width: 100%;
+  height: 250px;
+  box-shadow: inset 3px 3px 15px 0px #999;
+  -webkit-box-shadow: inset 3px 3px 15px 0px #999;
+  border: 3px solid #d9d9d9;
+  pointer-events: none;
+  margin-bottom: -250px;
+}
+
+.addresses {
+  margin-bottom: 15px;
+}
+
+.two_column .address {
+  float: left;
+  width: 49%;
+}
+
+/* smartphone screens */
+@media screen and (max-width: 375px) {
+  .two_column .address {
+    float: none;
+    width: auto;
+  }
+
+  nav ul {
+    padding: 8px;
+  }
+
+  nav ul li a {
+    display: block;
+    padding: 5px;
   }
 }

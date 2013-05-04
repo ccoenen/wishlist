@@ -1,4 +1,4 @@
-<h1>Listing wishes</h1>
+<h1><%= t('wishes_views.index_title') %></h1>
 
 <ul class='records'>
 <% @wishes.each do |wish| %>
@@ -9,7 +9,9 @@
       <span id='notes'><%= wish.notes %></span>
       <span id='url'><%= link_to wish.url, wish.url %></span>
       <% if !wish.claimed_by %>
-        <%= link_to 'As a gift', wish, class: 'btn' %>
+        <%= link_to t('actions.give_this_item'), wish, class: 'button' %>
+      <% else %>
+        <span class="claimed" title="<%= t('labels.claimed_title') %>"><%= t('labels.claimed') %></span>
       <% end %>
     <div>
   </li>

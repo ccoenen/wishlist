@@ -1,3 +1,4 @@
-<h1>Owner Protection</h1>
-<%= link_to 'Continue as Owner', {:controller => :owner_protection, :action => :owner} %>
-<%= link_to 'Continue as Visitor', {:controller => :owner_protection, :action => :visitor} %>
+<h1><%= t('owner_protection_views.index_title') %></h1>
+<p><%= t('owner_protection_views.index_explanation') %></p>
+<%= link_to t('owner_protection_views.owner_show_all'), {:controller => :owner_protection, :action => :owner}, :class => "button" %>
+<%= link_to t('owner_protection_views.visitor_show_unclaimed'), {:controller => :owner_protection, :action => :visitor}, :class => "button" %>

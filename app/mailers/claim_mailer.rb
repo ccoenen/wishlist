@@ -4,6 +4,8 @@ class ClaimMailer < ActionMailer::Base
   def claim(wish, email)
     @wish = wish
     @email = email
-    mail(to: email, subject: "test")
+    mail(to: email, subject: I18n.t('claim_mailer_claim.subject', {:gift => @wish.title}))
   end
+
+  # todo claim complete mail!
 end

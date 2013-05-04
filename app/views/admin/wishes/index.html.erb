@@ -1,4 +1,4 @@
-<h1>Listing admin_wishes</h1>
+<h1><%= t('admin_wishes_views.index_title') %></h1>
 
 <table>
   <tr>
@@ -11,13 +11,15 @@
   <tr>
     <td><%= image_tag wish.image.thumb.url.to_s %></td>
     <td><%= wish.title %></td>
-    <td><%= link_to 'Show', admin_wish_path(wish) %></td>
-    <td><%= link_to 'Edit', edit_admin_wish_path(wish) %></td>
-    <td><%= link_to 'Destroy', admin_wish_path(wish), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <td>
+      <%= link_to t('actions.show'), admin_wish_path(wish) %><br>
+      <%= link_to t('actions.edit'), edit_admin_wish_path(wish) %><br>
+      <%= link_to t('actions.destroy'), admin_wish_path(wish), method: :delete, data: { confirm: t('actions.confirm_delete_wish', :title => wish.title) } %>
+    </td>
   </tr>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to 'New Wish', new_admin_wish_path %>
+<%= link_to t('actions.new'), new_admin_wish_path %>

@@ -1,21 +1,21 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <b>Title:</b>
+  <b><%= t('active_record.attributes.wish.title') %></b>
   <%= @wish.title %>
 </p>
 
 <p>
-  <b>Notes:</b>
+  <b><%= t('active_record.attributes.wish.notes') %></b>
   <%= @wish.notes %>
 </p>
 
 <p>
-  <b>Url:</b>
+  <b><%= t('active_record.attributes.wish.url') %></b>
   <%= @wish.url %>
 </p>
 
-<%= link_to 'Edit', edit_admin_wish_path(@wish) %> |
-<%= link_to 'Back', admin_wishes_path %> |
-<%= link_to 'This wish in Frontend', wish_path(@wish) %> |
-<%= link_to 'All in Frontend', wishes_path %>
+<%= link_to t('actions.edit'), edit_admin_wish_path(@wish) %> |
+<%= link_to t('actions.back'), admin_wishes_path %> |
+<%= link_to t('actions.wish_in_frontend'), wish_path(@wish) %> |
+<%= link_to t('actions.all_wishes_in_frontend'), wishes_path %>

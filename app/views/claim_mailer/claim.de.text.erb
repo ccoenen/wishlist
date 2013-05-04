@@ -1,0 +1,11 @@
+Hallo,
+
+Du hast dir "<%= @wish.title %>" vom Wunschzettel ausgesucht.
+
+Bitte bestätige, dass Du das wirklich verschenken möchtest. Wir nehmen es dann automatisch von der Wunschliste, damit es nicht doppelt verschenkt wird.
+
+Zum bestätigen klicke bitte den folgenden Link an:
+<%= claim_wish_url(:id => @wish.secret, :email => @email, :only_path => false) %>
+
+Danke!
+Der automatische Wunschzettel

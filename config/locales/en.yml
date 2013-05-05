@@ -7,9 +7,12 @@ en:
       wish: Wish
     attributes:
       wish:
-        title: Title
-        notes: Notes
         image: Image
+        notes: Notes
+        position: Position
+        public: Public
+        received_on: Received On
+        title: Title
         url: URL
   actions:
     all_wishes_in_frontend: All wishes in frontend
@@ -23,6 +26,7 @@ en:
     show: show
     wish_in_frontend: show this wish in frontend
   labels:
+    secret: secret
     claimed: claimed
     claimed_title: someone else is already planning on giving this
   admin_wishes_controller:
@@ -32,6 +36,7 @@ en:
   wishes_controller:
     claim_notice: You claimed %{title}. This wish can not be claimed by anyone else now.
     prepare_claim_notice: Please take a look at your email-inbox. You need to click the link contained in that email.
+    wish_not_found: We couldn't find a wish at that url, so we took you back to the Start
   claim_mailer_claim:
     subject: Please verify that you are going to give %{gift}
   admin_wishes_views:

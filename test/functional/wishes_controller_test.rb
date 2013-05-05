@@ -4,6 +4,7 @@ class WishesControllerTest < ActionController::TestCase
   setup do
     @teapot = wishes(:teapot)
     @teaspoon = wishes(:taken_teaspoon)
+    @sugar = wishes(:secret_sugar)
   end
 
   test "should get index" do
@@ -12,6 +13,7 @@ class WishesControllerTest < ActionController::TestCase
     assert_not_nil assigns(:wishes)
     assert assigns(:wishes).include?(@teapot)
     assert assigns(:wishes).include?(@teaspoon) # when in doubt, contain everything.
+    assert !assigns(:wishes).include?(@sugar), "don't ever contain unpublished items"
   end
 
   test "only visitor sees only things that have not been claimed" do
@@ -19,11 +21,13 @@ class WishesControllerTest < ActionController::TestCase
     get :index
     assert assigns(:wishes).include?(@teapot), "teapot is unclaimed. should be shown to visitors"
     assert !assigns(:wishes).include?(@teaspoon), "teaspoon is claimed. should not be shown to visitors"
+    assert !assigns(:wishes).include?(@sugar), "don't ever contain unpublished items"
 
     @request.cookies['visitor'] = 'false'
     get :index
     assert assigns(:wishes).include?(@teapot), "teapot is unclaimed. should be shown to anyone"
     assert assigns(:wishes).include?(@teaspoon), "teaspoon is claimed. should be shown to owner"
+    assert !assigns(:wishes).include?(@sugar), "don't ever contain unpublished items"
   end
 
   test "should show wish" do
@@ -32,6 +36,11 @@ class WishesControllerTest < ActionController::TestCase
     assert_equal(@teapot.title, assigns(:wish).title)
   end
 
+  test "should not show unpublished wish" do
+    get :show, id: @sugar
+    assert_nil(assigns(:wish))
+    assert_redirected_to root_url
+  end
   test "visitors may enter email to claim a wish" do
     assert_difference 'ActionMailer::Base.deliveries.size', +1 do
       post :prepare_claim, claim: { email: "some@thing.com"}, id: @teapot

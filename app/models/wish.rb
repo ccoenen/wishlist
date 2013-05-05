@@ -1,5 +1,5 @@
 class Wish < ActiveRecord::Base
-  attr_accessible :notes, :title, :url, :image, :image_cache
+  attr_accessible :notes, :title, :url, :image, :image_cache, :position, :received_on, :public
 
   validates :secret, :presence => true, :uniqueness => true
 

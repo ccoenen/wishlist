@@ -5,6 +5,7 @@ teapot:
   claimed_by:
   image: smiley.png
   notes: This should be a nice teapot
+  public: true
   secret: aebasdf0923
   url: http://example.com/test/teapot
 
@@ -13,5 +14,15 @@ taken_teaspoon:
   claimed_by: aww. fiddlesticks.
   image: smiley.png
   notes: I really want this teaspoon.
+  public: true
   secret: jdfasjx
   url: http://example.com/test/teaspoon
+
+secret_sugar:
+  title: Sugar
+  claimed_by:
+  image: smiley.png
+  notes: Sugar is so naughty, i should keep this private
+  public: false
+  secret: jdfaaajx
+  url: http://example.com/test/sugar

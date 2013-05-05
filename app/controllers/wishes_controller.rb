@@ -3,17 +3,22 @@ class WishesController < ApplicationController
   def index
     conditions = if cookies[:visitor] && cookies[:visitor] === 'true' # cookies actually are strings.
       logger.debug "visitors should see only available things."
-      {:claimed_by => nil}
+      {:public => true, :claimed_by => nil}
     else
       logger.debug "non-visitors (i.e. owners) should see everything to not get spoiled"
-      {}
+      {:public => true}
     end
     @wishes = Wish.find(:all, :conditions => conditions)
   end
 
   # GET /wishes/1
   def show
-    @wish = Wish.find(params[:id])
+    begin
+      @wish = Wish.find(params[:id], :conditions => {:public => true})
+    rescue ActiveRecord::RecordNotFound => e
+      logger.warn e
+      redirect_to root_url, :notice => I18n.t('wishes_controller.wish_not_found')
+    end
   end
 
   # POST /wishes/1/prepare_claim

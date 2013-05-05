@@ -10,7 +10,7 @@
 <% @wishes.each do |wish| %>
   <tr>
     <td><%= image_tag wish.image.thumb.url.to_s %></td>
-    <td><%= wish.title %></td>
+    <td><%= raw wish.public ? '' : "<span class='secret'>#{t('labels.secret')}</span>" %> <%= wish.title %></td>
     <td>
       <%= link_to t('actions.show'), admin_wish_path(wish) %><br>
       <%= link_to t('actions.edit'), edit_admin_wish_path(wish) %><br>

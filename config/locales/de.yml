@@ -205,9 +205,12 @@ de:
       wish: Wunsch
     attributes:
       wish:
-        title: Titel
-        notes: Notizen
         image: Bild
+        notes: Notizen
+        position: Listenplatz
+        public: Öffentlich
+        received_on: Erhalten am
+        title: Titel
         url: URL
   actions:
     all_wishes_in_frontend: Alle Wünsche im Frontend
@@ -221,6 +224,7 @@ de:
     show: anzeigen
     wish_in_frontend: Wunsch im Frontend anzeigen
   labels:
+    secret: geheim
     claimed: vergeben
     claimed_title: Dieser Wunsch wird bereits von einer anderen Person geschenkt.
   admin_wishes_controller:
@@ -230,6 +234,7 @@ de:
   wishes_controller:
     claim_notice: Sie haben den Wunsch %{title} übernommen. Dieser Wunsch wird Anderen nun nicht mehr vorgeschlagen.
     prepare_claim_notice: Bitte schaue in dein E-Mail-Postfach. Bestätige, dass du diesen Wunsch erfüllen möchtest, indem du den Link in der E-Mail anklickst.
+    wish_not_found: We couldn't find a wish at that url, so we took you back to the Start
   claim_mailer_claim:
     subject: Bitte bestätige, dass du %{gift} verschenken möchtest
   admin_wishes_views:

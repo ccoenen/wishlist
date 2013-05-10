@@ -1,4 +1,19 @@
 class WishesController < ApplicationController
+
+  def owner_protection
+  end
+
+  def owner
+    cookies[:visitor] = false
+    redirect_to wishes_url
+  end
+
+  def visitor
+    cookies[:visitor] = true
+    redirect_to wishes_url
+  end
+
+
   # GET /wishes
   def index
     conditions = if cookies[:visitor] && cookies[:visitor] === 'true' # cookies actually are strings.

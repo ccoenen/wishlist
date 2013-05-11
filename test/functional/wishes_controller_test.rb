@@ -31,18 +31,26 @@ class WishesControllerTest < ActionController::TestCase
     assert !assigns(:wishes).include?(@sugar), "don't ever contain unpublished items"
   end
 
-  test "only visitor sees only things that have not been claimed" do
+  test "owner won't see what's claimed" do
     @request.cookies['visitor'] = 'true'
     get :index
     assert assigns(:wishes).include?(@teapot), "teapot is unclaimed. should be shown to visitors"
-    assert !assigns(:wishes).include?(@teaspoon), "teaspoon is claimed. should not be shown to visitors"
+    assert assigns(:wishes).include?(@teaspoon), "teaspoon is claimed. be on the list"
+    assert @teaspoon.claimed_by, "Teaspoon should display as claimed to visitors"
     assert !assigns(:wishes).include?(@sugar), "don't ever contain unpublished items"
+    assigns(:wishes).each do |wish|
+      assert !wish.frozen?
+    end
 
     @request.cookies['visitor'] = 'false'
     get :index
     assert assigns(:wishes).include?(@teapot), "teapot is unclaimed. should be shown to anyone"
     assert assigns(:wishes).include?(@teaspoon), "teaspoon is claimed. should be shown to owner"
     assert !assigns(:wishes).include?(@sugar), "don't ever contain unpublished items"
+    assigns(:wishes).each do |wish|
+      assert wish.readonly?, "all items should be read only for owners"
+      assert_nil wish.claimed_by, "no item should appear claimed to owners - even if it is"
+    end
   end
 
   test "should show wish" do

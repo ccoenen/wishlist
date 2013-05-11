@@ -2,6 +2,12 @@
 
 <ul class='records'>
 <% @wishes.each do |wish| %>
+   <%
+  if cookies[:visitor] && cookies[:visitor] != 'true'
+    wish.claimed_by = nil
+    wish.readonly!
+  end
+  %>
   <li class='record <%= 'claimed' if wish.claimed_by %>'>
     <%= image_tag wish.image.thumb.url.to_s, class: 'thumb' %>
     <div class='info'>

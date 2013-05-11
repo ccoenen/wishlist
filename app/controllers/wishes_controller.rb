@@ -16,14 +16,7 @@ class WishesController < ApplicationController
 
   # GET /wishes
   def index
-    conditions = if cookies[:visitor] && cookies[:visitor] === 'true' # cookies actually are strings.
-      logger.debug "visitors should see only available things."
-      {:public => true, :claimed_by => nil}
-    else
-      logger.debug "non-visitors (i.e. owners) should see everything to not get spoiled"
-      {:public => true}
-    end
-    @wishes = Wish.find(:all, :conditions => conditions)
+    @wishes = Wish.find(:all, :conditions => {:public => true})
   end
 
   # GET /wishes/1

@@ -51,3 +51,4 @@ en:
   wishes_views:
     claim_label: "Enter your email to claim this wish:"
     index_title: List of Wishes
+    empty_list: At the moment, there are no wishes on this list.

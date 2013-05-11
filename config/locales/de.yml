@@ -249,3 +249,4 @@ de:
   wishes_views:
     claim_label: "Gib deine E-Mailadresse an, um diesen Wunsch zu erfüllen:"
     index_title: Liste der Wünsche
+    empty_list: Momentan sind keine Wünsche auf dieser Liste.

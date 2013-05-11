@@ -13,8 +13,14 @@ site-owner.
 
 
 
+
 License
 --
 
 Offered under MIT License, with no warranty whatsoever. See LICENSE File. We're not responsible if you don't
 get what you wish for. Neither in life, nor for birthdays.
+
+3rd Party
+--
+
+The present used as a default image comes from [freepsdfiles.net](http://freepsdfiles.net/graphics/gift-box-icon/)

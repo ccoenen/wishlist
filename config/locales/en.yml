@@ -46,12 +46,11 @@ en:
     index_title: Wishes
     edit_wish_title: Edit this wish
     new_wish_title: New Wish
-  owner_protection_views:
-    index_title: Surprise Protection
-    index_explanation: This is the first time that you visit this wishlist. We don't want to spoil the surprise, this is why we need to know if you are the owner of this wishlist or not.
-    owner_show_all: I am the owner of the list. Don't spoil my surprise
-    visitor_show_unclaimed: I am looking for presents to give. Show me only unclaimed wishes.
   wishes_views:
     claim_label: "Enter your email to claim this wish:"
-    index_title: List of Wishes
     empty_list: At the moment, there are no wishes on this list.
+    index_title: List of Wishes
+    owner_protection_title: Surprise Protection
+    owner_protection_explanation: We don't want to spoil the surprise, this is why we need to know if you are the owner of this wishlist or not.
+    owner_show_all: I am the owner of the list. (Won't show any details)
+    visitor_show_unclaimed: I am looking for presents to give away. (Shows, which presents are already claimed!)

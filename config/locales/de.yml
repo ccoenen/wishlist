@@ -244,12 +244,11 @@ de:
     index_title: Wünsche
     edit_wish_title: Wunsch bearbeiten
     new_wish_title: Neuer Wunsch
-  owner_protection_views:
-    index_title: Überraschungs-Schutz
-    index_explanation: Du bist zum ersten Mal auf diesem Wunschzettel. Um zu verhindern, dass die Überraschung verloren geht, müssen wir wissen ob das deine Liste ist oder nicht.
-    owner_show_all: Ich bin Besitzer der Liste, verdirb mir nicht die Überraschung.
-    visitor_show_unclaimed: Ich suche Geschenke, zeige mir auch, welche schon verschenkt werden!
   wishes_views:
     claim_label: "Gib deine E-Mailadresse an, um diesen Wunsch zu erfüllen:"
-    index_title: Liste der Wünsche
     empty_list: Momentan sind keine Wünsche auf dieser Liste.
+    index_title: Liste der Wünsche
+    owner_protection_explanation: Um zu verhindern, dass die Überraschung verloren geht, müssen wir wissen ob das deine Liste ist oder nicht.
+    owner_protection_title: Überraschungs-Schutz
+    owner_show_all: Ich bin Besitzer der Liste (zeigt keine Details an).
+    visitor_show_unclaimed: Ich suche Geschenke (zeigt an, welche Geschenke schon geschenkt werden!)

@@ -3,9 +3,12 @@ class ClaimMailer < ActionMailer::Base
 
   def claim(wish, email)
     @wish = wish
-    @email = email
+    @email = email # also used in the template
     mail(to: email, subject: I18n.t('claim_mailer_claim.subject', {:gift => @wish.title}))
   end
 
-  # todo claim complete mail!
+  def claimed_successfully(wish, email)
+    @wish = wish
+    mail(to: email, subject: I18n.t('claim_mailer_claimed_successfully.subject', {:gift => @wish.title}))
+  end
 end

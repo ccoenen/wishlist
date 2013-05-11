@@ -136,8 +136,13 @@ nav ul li a.active {
   bottom: 0;
 }
 
-#notice {
-  color: green;
+.notice {
+  background-color: rgb(255,255,180);
+  padding: 1em;
+  color: rgb(170,120,0);
+  border: 1px solid rgb(170,120,0);
+  border-radius: 4px;
+  text-align: center;
 }
 
 .field_with_errors {

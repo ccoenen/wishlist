@@ -233,10 +233,13 @@ de:
     wish_updated_notice: Wunsch wurde erfolgreich geändert.
   wishes_controller:
     claim_notice: Sie haben den Wunsch %{title} übernommen. Dieser Wunsch wird Anderen nun nicht mehr vorgeschlagen.
+    claim_failed_notice: "%{title} wird schon von %{email} verschenkt."
     prepare_claim_notice: Bitte schaue in dein E-Mail-Postfach. Bestätige, dass du diesen Wunsch erfüllen möchtest, indem du den Link in der E-Mail anklickst.
     wish_not_found: We couldn't find a wish at that url, so we took you back to the Start
   claim_mailer_claim:
     subject: Bitte bestätige, dass du %{gift} verschenken möchtest
+  claim_mailer_claimed_successfully:
+    subject: Danke, dass du %{gift} verschenken möchtest.
   admin_wishes_views:
     index_title: Wünsche
     edit_wish_title: Wunsch bearbeiten

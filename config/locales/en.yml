@@ -35,10 +35,13 @@ en:
     wish_updated_notice: Wish was updated successfully.
   wishes_controller:
     claim_notice: You claimed %{title}. This wish can not be claimed by anyone else now.
+    claim_failed_notice: "%{title} has already been claimed by %{email}."
     prepare_claim_notice: Please take a look at your email-inbox. You need to click the link contained in that email.
     wish_not_found: We couldn't find a wish at that url, so we took you back to the Start
   claim_mailer_claim:
     subject: Please verify that you are going to give %{gift}
+  claim_mailer_claimed_successfully:
+    subject: Thank you for claiming %{gift}.
   admin_wishes_views:
     index_title: Wishes
     edit_wish_title: Edit this wish

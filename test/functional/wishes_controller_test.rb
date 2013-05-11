@@ -76,8 +76,20 @@ class WishesControllerTest < ActionController::TestCase
   end
 
   test "clicking the link actually claims the wish" do
-    get :claim, {email: 'some@thing.com', id: @teapot.secret}
+    assert_difference 'ActionMailer::Base.deliveries.size', +1 do
+      get :claim, {email: 'some@thing.com', id: @teapot.secret}
+    end
     assert_equal @teapot, assigns(:wish), 'should find the right wish by secret'
     assert_equal 'some@thing.com', assigns(:wish).claimed_by, 'should be claimed by the right person'
+    assert_equal I18n.t('wishes_controller.claim_notice', :title => @teapot.title), flash[:notice], "right flash for success is displayed"
+  end
+
+  test "reclaiming a claimed wish will give you a notice" do
+    assert_difference 'ActionMailer::Base.deliveries.size', 0 do
+      get :claim, {email: 'some@thing.com', id: @teaspoon.secret}
+    end
+    assert_equal @teaspoon, assigns(:wish), 'should find the right wish by secret'
+    assert_not_equal 'some@thing.com', assigns(:wish).claimed_by, 'should be claimed by the original person'
+    assert_equal I18n.t('wishes_controller.claim_failed_notice', {:title => @teaspoon.title, :email => @teaspoon.claimed_by}), flash[:notice], "right flash for failure is displayed"
   end
 end

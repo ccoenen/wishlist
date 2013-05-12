@@ -10,6 +10,7 @@ en:
         image: Image
         notes: Notes
         position: Position
+        price: Price
         public: Public
         received_on: Received On
         title: Title

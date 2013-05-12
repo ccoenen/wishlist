@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130505145022) do
+ActiveRecord::Schema.define(:version => 20130512173928) do
 
   create_table "wishes", :force => true do |t|
     t.string   "title"
@@ -25,6 +25,7 @@ ActiveRecord::Schema.define(:version => 20130505145022) do
     t.integer  "position"
     t.boolean  "public"
     t.datetime "received_on"
+    t.string   "price"
   end
 
 end

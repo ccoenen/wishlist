@@ -15,8 +15,9 @@
     <%= image_tag wish.image.thumb.url.to_s, class: 'thumb' %>
     <div class='info'>
       <h4><%= wish.title %></h4>
-      <span id='notes'><%= wish.notes %></span>
-      <span id='url'><%= link_to wish.url, wish.url %></span>
+      <span class='notes'><%= wish.notes %></span>
+      <span class='url'><%= link_to wish.url, wish.url %></span>
+	  <span class='price'><%= wish.price %></span>
       <% if !wish.claimed_by %>
         <%= link_to t('actions.give_this_item'), wish, class: 'button' %>
       <% else %>

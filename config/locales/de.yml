@@ -208,6 +208,7 @@ de:
         image: Bild
         notes: Notizen
         position: Listenplatz
+        price: Preis
         public: Öffentlich
         received_on: Erhalten am
         title: Titel

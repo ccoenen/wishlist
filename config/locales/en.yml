@@ -25,6 +25,7 @@ en:
     give_this_item: I want to give this item
     new_wish: add a wish
     show: show
+    toggle_public: publish/hide
     wish_in_frontend: show this wish in frontend
   labels:
     secret: secret

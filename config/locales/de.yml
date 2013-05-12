@@ -223,6 +223,7 @@ de:
     give_this_item: Ich möchte diesen Wunsch erfüllen.
     new_wish: Wunsch hinzufügen
     show: anzeigen
+    toggle_public: veröffentlichen/verstecken
     wish_in_frontend: Wunsch im Frontend anzeigen
   labels:
     secret: geheim

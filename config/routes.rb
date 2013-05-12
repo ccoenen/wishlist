@@ -2,6 +2,7 @@ Wishlist::Application.routes.draw do
   namespace :admin do
     resources :wishes do
      post 'sort', :on => :collection
+     post 'toggle_public', :on => :member
     end
   end
 

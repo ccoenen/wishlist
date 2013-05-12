@@ -3,7 +3,7 @@ require 'test_helper'
 class Admin::WishesControllerTest < ActionController::TestCase
   setup do
     @teapot = wishes(:teapot)
-	@auth = ActionController::HttpAuthentication::Basic.encode_credentials("frodo", "thering")
+    @auth = ActionController::HttpAuthentication::Basic.encode_credentials("frodo", "thering")
   end
 
   test "should need authentication" do
@@ -20,6 +20,8 @@ class Admin::WishesControllerTest < ActionController::TestCase
     delete :destroy, id: @teapot
     assert_response :unauthorized
     post :sort
+    assert_response :unauthorized
+    post :toggle_public, id: @teapot
     assert_response :unauthorized
   end
 
@@ -81,5 +83,16 @@ class Admin::WishesControllerTest < ActionController::TestCase
     assert_equal 1, Wish.find(wishes(:secret_sugar).id).position
     assert_equal 2, Wish.find(wishes(:taken_teaspoon).id).position
     assert_equal 3, Wish.find(wishes(:teapot).id).position
+  end
+
+  test "toggle public flag" do
+    @request.env['HTTP_AUTHORIZATION'] = @auth
+    post :toggle_public, :id => wishes(:secret_sugar).id
+    assert_equal true, Wish.find(wishes(:secret_sugar).id).public, "toggling the secret item should make it public"
+    assert_redirected_to admin_wishes_url
+
+    post :toggle_public, :id => wishes(:taken_teaspoon).id
+    assert_equal false, Wish.find(wishes(:taken_teaspoon).id).public, "toggling the public item should make it private"
+    assert_redirected_to admin_wishes_url
   end
 end

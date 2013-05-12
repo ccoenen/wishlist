@@ -8,11 +8,12 @@
       <%= raw wish.public ? '' : "<span class='secret'>#{t('labels.secret')}</span>" %>
       <span class="price"><%= wish.price %></span>
       <strong><%= wish.title %></strong><br>
-	  <%= wish.notes %>
+      <%= wish.notes %>
     </td>
     <td>
       <%= link_to t('actions.show'), admin_wish_path(wish) %><br>
       <%= link_to t('actions.edit'), edit_admin_wish_path(wish) %><br>
+      <%= link_to t('actions.toggle_public'), toggle_public_admin_wish_path(wish), method: :post %>
       <%= link_to t('actions.destroy'), admin_wish_path(wish), method: :delete, data: { confirm: t('actions.confirm_delete_wish', :title => wish.title) } %>
     </td>
   </tr>

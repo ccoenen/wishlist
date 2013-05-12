@@ -63,4 +63,11 @@ class Admin::WishesController < ApplicationController
 
     render :nothing => true
   end
+
+  def toggle_public
+    @wish = Wish.find(params[:id])
+    @wish.public = !@wish.public
+    @wish.save
+    redirect_to admin_wishes_url, :notice => I18n.t('admin_wishes_controller.wish_updated_notice')
+  end
 end

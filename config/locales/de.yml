@@ -247,6 +247,7 @@ de:
   wishes_views:
     claim_label: "Gib deine E-Mailadresse an, um diesen Wunsch zu erfüllen:"
     empty_list: Momentan sind keine Wünsche auf dieser Liste.
+    howto: Wie funktioniert der Wunschzettel? (Hilfe)
     index_title: Liste der Wünsche
     owner_protection_explanation: Um zu verhindern, dass die Überraschung verloren geht, müssen wir wissen ob das deine Liste ist oder nicht.
     owner_protection_title: Überraschungs-Schutz

@@ -12,6 +12,7 @@ Wishlist::Application.routes.draw do
     match 'owner_protection', :on => :collection, :action => :owner_protection
     match 'visitor', :on => :collection, :action => :visitor
     match 'owner', :on => :collection, :action => :owner
+    match 'howto', :on => :collection, :action => :howto
   end
 
   root :to => 'wishes#owner_protection'

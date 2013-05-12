@@ -13,6 +13,8 @@ class WishesController < ApplicationController
     redirect_to wishes_url
   end
 
+  def howto
+  end
 
   # GET /wishes
   def index

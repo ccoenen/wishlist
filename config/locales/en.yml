@@ -49,6 +49,7 @@ en:
   wishes_views:
     claim_label: "Enter your email to claim this wish:"
     empty_list: At the moment, there are no wishes on this list.
+    howto: How does the wishlist work? (help)
     index_title: List of Wishes
     owner_protection_title: Surprise Protection
     owner_protection_explanation: We don't want to spoil the surprise, this is why we need to know if you are the owner of this wishlist or not.

@@ -1,5 +1,5 @@
 <h1><%= t('wishes_views.index_title') %></h1>
-
+<%= render :partial => 'header' %>
 <% if @wishes.empty? %>
   <p><%=t 'wishes_views.empty_list' %></p>
 <% end %>

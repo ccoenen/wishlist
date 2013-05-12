@@ -11,7 +11,7 @@ group :development do
 end
 
 gem 'pg'
-gem "mini_magick"
+gem "mini_magick", '~> 3.4.0'
 gem "carrierwave"
 
 # Gems used only for assets and not required

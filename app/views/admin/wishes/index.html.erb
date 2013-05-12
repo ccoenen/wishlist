@@ -1,12 +1,6 @@
 <h1><%= t('admin_wishes_views.index_title') %></h1>
 
 <table id="admin-wishlist">
-  <tr>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
 <% @wishes.each do |wish| %>
   <tr id="wish_<%= wish.id %>">
     <td><%= image_tag wish.image.thumb.url.to_s %></td>
@@ -35,6 +29,7 @@
       items: 'tr',
       opacity: 0.4,
       scroll: true,
+      placeholder: 'sortable-placeholder',
       update: function(){
         $.ajax({
           type: 'post',

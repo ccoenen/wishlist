@@ -1,6 +1,6 @@
 <h1><%= t('admin_wishes_views.index_title') %></h1>
 
-<table>
+<table id="admin-wishlist">
   <tr>
     <th></th>
     <th></th>
@@ -8,7 +8,7 @@
   </tr>
 
 <% @wishes.each do |wish| %>
-  <tr>
+  <tr id="wish_<%= wish.id %>">
     <td><%= image_tag wish.image.thumb.url.to_s %></td>
     <td><%= raw wish.public ? '' : "<span class='secret'>#{t('labels.secret')}</span>" %> <%= wish.title %></td>
     <td>
@@ -23,3 +23,30 @@
 <br />
 
 <%= link_to t('actions.new'), new_admin_wish_path %>
+
+<% content_for :javascript do %>
+  <%= javascript_tag do %>
+  // Sorting
+  $(document).ready(function(){
+    $('#admin-wishlist').sortable({
+      axis: 'y',
+      dropOnEmpty: false,
+      cursor: 'crosshair',
+      items: 'tr',
+      opacity: 0.4,
+      scroll: true,
+      update: function(){
+        $.ajax({
+          type: 'post',
+          data: $(this).sortable('serialize'),
+          dataType: 'script',
+          complete: function(request){
+            $('#admin-wishlist').effect('highlight');
+          },
+          url: '/admin/wishes/sort'
+        })
+      }
+    });
+  });
+  <% end %>
+<% end %>

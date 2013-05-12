@@ -16,7 +16,13 @@ class WishesController < ApplicationController
 
   # GET /wishes
   def index
-    @wishes = Wish.find(:all, :conditions => {:public => true})
+    order = if cookies[:visitor] && cookies[:visitor] === 'true' # cookies actually are strings.
+      "wishes.claimed_by DESC, wishes.position ASC"
+    else
+      "wishes.position ASC"
+    end
+
+    @wishes = Wish.find(:all, :conditions => {:public => true}, :order => order)
   end
 
   # GET /wishes/1

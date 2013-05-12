@@ -41,6 +41,8 @@ class WishesControllerTest < ActionController::TestCase
     assigns(:wishes).each do |wish|
       assert !wish.frozen?
     end
+    assert_equal 0, assigns(:wishes).index(@teapot), "visitors see the teapot up top"
+    assert_equal 1, assigns(:wishes).index(@teaspoon), "visitors see the teaspoon second, it's already taken."
 
     @request.cookies['visitor'] = 'false'
     get :index
@@ -51,6 +53,8 @@ class WishesControllerTest < ActionController::TestCase
       assert wish.readonly?, "all items should be read only for owners"
       assert_nil wish.claimed_by, "no item should appear claimed to owners - even if it is"
     end
+    assert_equal 1, assigns(:wishes).index(@teapot), "owner sees the list sorted by position only"
+    assert_equal 0, assigns(:wishes).index(@teaspoon), "owner sees the list sorted by position only"
   end
 
   test "should show wish" do

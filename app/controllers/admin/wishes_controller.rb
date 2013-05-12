@@ -2,27 +2,29 @@ class Admin::WishesController < ApplicationController
   # taken from railscast 270 :D You obviously want to change it
   http_basic_authenticate_with :name => "frodo", :password => "thering", :realm => I18n.t('admin_wishes_controller.http_basic_auth_realm')
 
-  # GET /admin/wishlist
+  layout "admin"
+
+  # GET /admin/wishes
   def index
-    @wishes = Wish.all
+    @wishes = Wish.order('wishes.position ASC')
   end
 
-  # GET /admin/wishlists/1
+  # GET /admin/wishes/1
   def show
     @wish = Wish.find(params[:id])
   end
 
-  # GET /admin/wishlists/new
+  # GET /admin/wishes/new
   def new
     @wish = Wish.new
   end
 
-  # GET /admin/wishlists/1/edit
+  # GET /admin/wishes/1/edit
   def edit
     @wish = Wish.find(params[:id])
   end
 
-  # POST /admin/wishlists
+  # POST /admin/wishes
   def create
     @wish = Wish.new(params[:wish])
 
@@ -33,7 +35,7 @@ class Admin::WishesController < ApplicationController
     end
   end
 
-  # PUT /admin/wishlists/1
+  # PUT /admin/wishes/1
   def update
     @wish = Wish.find(params[:id])
 
@@ -44,10 +46,21 @@ class Admin::WishesController < ApplicationController
     end
   end
 
-  # DELETE /admin/wishlists/1
+  # DELETE /admin/wishes/1
   def destroy
     @wish = Wish.find(params[:id])
     @wish.destroy
     redirect_to admin_wishes_url
+  end
+
+  # POST /admin/wishes/sort
+  def sort
+    @wishes = Wish.all
+    @wishes.each do |w|
+      w.position = params[:wish].index(w.id.to_s) + 1
+      w.save
+    end
+
+    render :nothing => true
   end
 end

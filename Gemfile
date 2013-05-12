@@ -13,6 +13,7 @@ end
 gem 'pg'
 gem "mini_magick", '~> 3.4.0'
 gem "carrierwave"
+gem 'acts_as_list'
 
 # Gems used only for assets and not required
 # in production environments by default.

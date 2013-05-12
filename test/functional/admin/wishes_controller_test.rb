@@ -8,12 +8,24 @@ class Admin::WishesControllerTest < ActionController::TestCase
 
   test "should need authentication" do
     get :index
-	assert_response :unauthorized
+    assert_response :unauthorized
+    get :new
+    assert_response :unauthorized
+    get :show, id: @teapot
+    assert_response :unauthorized
+    get :edit, id: @teapot
+    assert_response :unauthorized
+    post :create
+    assert_response :unauthorized
+    delete :destroy, id: @teapot
+    assert_response :unauthorized
+    post :sort
+    assert_response :unauthorized
   end
 
   test "should get index" do
     @request.env['HTTP_AUTHORIZATION'] = @auth
-	get :index
+    get :index
     assert_response :success
     assert_not_nil assigns(:wishes)
   end
@@ -58,5 +70,16 @@ class Admin::WishesControllerTest < ActionController::TestCase
     end
 
     assert_redirected_to admin_wishes_path
+  end
+
+  test "sorting by jquery-ui" do
+    assert_equal 3, Wish.find(wishes(:secret_sugar).id).position
+    assert_equal 1, Wish.find(wishes(:taken_teaspoon).id).position
+    assert_equal 2, Wish.find(wishes(:teapot).id).position
+    @request.env['HTTP_AUTHORIZATION'] = @auth
+    post :sort, :wish => [wishes(:secret_sugar).id, wishes(:taken_teaspoon).id, wishes(:teapot).id]
+    assert_equal 1, Wish.find(wishes(:secret_sugar).id).position
+    assert_equal 2, Wish.find(wishes(:taken_teaspoon).id).position
+    assert_equal 3, Wish.find(wishes(:teapot).id).position
   end
 end

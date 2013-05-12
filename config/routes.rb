@@ -1,6 +1,8 @@
 Wishlist::Application.routes.draw do
   namespace :admin do
-    resources :wishes
+    resources :wishes do
+     post 'sort', :on => :collection
+    end
   end
 
   resources :wishes, :only => [:index, :show] do

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Wishlist</title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= javascript_include_tag "jquery-1.9.1" %>
+  <%= javascript_include_tag "jquery-ui-1.10.3" %>
+  <%= yield :javascript %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+  <div id="page">
+
+    <%= render 'layouts/header' %>
+
+    <div id="content">
+
+      <%= render 'layouts/wishlist' %>
+
+    </div>
+
+  </div>
+
+</body>
+</html>
